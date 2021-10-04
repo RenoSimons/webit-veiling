@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Bids extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'amount',
+    ];
+
+    public $timestamps = true;
 }

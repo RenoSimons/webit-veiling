@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\adminDashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Admin
+Route::get('/dashboard', [App\Http\Controllers\adminDashboardController::class, 'index'])->name('dashboard');
+Route::post('/add_product', [App\Http\Controllers\adminDashboardController::class, 'addProduct'])->name('test');
