@@ -22,5 +22,4 @@ Route::get('/', function () {
 Auth::routes();
 
 //Admin
-Route::get('/dashboard', [App\Http\Controllers\adminDashboardController::class, 'index'])->name('dashboard');
-Route::post('/add_product', [App\Http\Controllers\adminDashboardController::class, 'addProduct'])->name('test');
+Route::resource('products', adminDashboardController::class)->middleware('auth');
