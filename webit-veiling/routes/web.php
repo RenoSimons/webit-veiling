@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\clientController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +23,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Admin
+// Client
+Route::middleware('auth')->group(function () {
+    Route::get('/', [clientController::class, 'index'])->withoutMiddleware('auth');
+});
+
+// Admin
 Route::resource('products', adminDashboardController::class)->middleware('admin');
