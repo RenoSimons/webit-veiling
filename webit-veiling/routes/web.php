@@ -22,4 +22,4 @@ Route::get('/', function () {
 Auth::routes();
 
 //Admin
-Route::resource('products', adminDashboardController::class)->middleware('auth');
+Route::resource('products', adminDashboardController::class)->middleware('admin');

@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Reno Simons',
             'email' => 'reno@skynet.be',
             'password' => Hash::make('password'),
+            'admin' => 1,
         ]);
     }
 }
