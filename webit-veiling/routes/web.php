@@ -16,11 +16,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('./clients/product_overview');
-});
-
 Auth::routes();
 
 // Client

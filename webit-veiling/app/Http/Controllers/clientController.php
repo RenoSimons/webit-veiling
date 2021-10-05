@@ -9,8 +9,8 @@ use App\Models\Product;
 class clientController extends Controller
 {
     public function index() {
-        $products = Product::paginate(10);
+        $products = Product::paginate(9);
 
-        return view('./admin/dashboard')->with('data', $products);
+        return view('./clients/product_overview')->with('data', $products);
     }
 }
