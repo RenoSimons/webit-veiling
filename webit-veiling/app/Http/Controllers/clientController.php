@@ -11,8 +11,11 @@ use App\Models\Bid;
 class clientController extends Controller
 {
     public function index() {
-        $products = Product::paginate(9);
+        $now = \Carbon\Carbon::today();
 
+        $products = Product::query()
+        ->where ('close_date' , '<', $now)->paginate(9);
+        
         return view('./clients/product_overview')->with('data', $products);
     }
 
@@ -42,7 +45,11 @@ class clientController extends Controller
         }
 
         // Check if product hasn't reached end date at time of request
-        
+        if ( ! Product::checkIfDateValid($product) ) {
+            return Redirect()->back()
+            ->withErrors(["This bid offering has come to an end"]);
+        }
+        Product::checkIfDateValid($product);
 
         // Save bid
         $bid = new Bid([
