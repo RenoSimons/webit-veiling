@@ -14,7 +14,9 @@ class clientController extends Controller
         $now = \Carbon\Carbon::today();
 
         $products = Product::query()
-        ->where ('close_date' , '<', $now)->paginate(9);
+        ->where('close_date' , '<', $now)
+        ->orderBy('close_date', 'ASC')
+        ->paginate(9);
         
         return view('./clients/product_overview')->with('data', $products);
     }
@@ -49,7 +51,6 @@ class clientController extends Controller
             return Redirect()->back()
             ->withErrors(["This bid offering has come to an end"]);
         }
-        Product::checkIfDateValid($product);
 
         // Save bid
         $bid = new Bid([
@@ -59,6 +60,7 @@ class clientController extends Controller
         ]);
         $bid->save();
 
+        // Update product
         $product->highest_offer = $request->input('user_bid');
         $product->save();
 

@@ -34,7 +34,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @admin
+                            <li class=""><a href="/products" class="btn-sm btn-primary">Dashboard</a></li>
+                        @endadmin
                     </ul>
 
                     <!-- Right Side Of Navbar -->
