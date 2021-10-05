@@ -14,6 +14,7 @@ class Product extends Model
         'start_price',
         'img_url',
         'close_date',
+        'description'
     ];
 
     public $timestamps = true;

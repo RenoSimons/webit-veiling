@@ -13,4 +13,8 @@ class clientController extends Controller
 
         return view('./clients/product_overview')->with('data', $products);
     }
+
+    public function detail(Product $product) {
+        return view('./clients/product_detail')->with('data', $product);
+    }
 }

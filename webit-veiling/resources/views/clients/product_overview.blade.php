@@ -12,8 +12,8 @@
                     <h4 class="card-title">{{ $product->name }}</h4>
                     <p class="card-text small font-weight-bold mb-0">Highest bid: {{ $product->highest_offer == null ? "No bids yet" : "€" . $product->highest_offer}}</p>
                     <p class="card-text small font-weight-bold">Start price: €{{ $product->start_price }}</p>
-                    <p class="small">Online since: {{ $product->close_date }}</p>
-                    <a href="#" class="btn btn-primary">See Product</a>
+                    <a href="{{ route('offer_detail', $product->id) }}" class="btn btn-primary">See Product</a>
+                    <p class="small mb-0 mt-3">Closing date: {{ $product->close_date }}</p>
                 </div>
             </div>
             @endforeach
