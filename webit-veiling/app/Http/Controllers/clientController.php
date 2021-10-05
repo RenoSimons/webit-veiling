@@ -36,9 +36,9 @@ class clientController extends Controller
         }
 
         // Check if highest bid
-        if ( ! Bid::checkIfHighestBidder($request->user_bid, $product->id) ) {
+        if ( ! Bid::checkIfHighestBidder($request->user_bid, $product) ) {
             return Redirect()->back()
-            ->withErrors(["Make sure your bid is higher than existing bids"]);
+            ->withErrors(["Make sure your bid is higher than existing bids or the starting price"]);
         }
 
         // Save bid

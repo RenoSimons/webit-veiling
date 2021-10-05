@@ -25,12 +25,12 @@ class Bid extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public static function checkIfHighestBidder($given_amount, $product_id) {
-        $highest_bid = Bid::where('product_id', $product_id)
+    public static function checkIfHighestBidder($given_amount, $product) {
+        $highest_bid = Bid::where('product_id', $product->id)
         ->orderBy('price', 'DESC')
         ->pluck('price')
         ->first();
 
-        return ($highest_bid < $given_amount || $highest_bid == null) ?  true : false;
+        return ($highest_bid < $given_amount || $highest_bid == null) &&  $product->start_price < $given_amount ?  true : false;
     }
 }
