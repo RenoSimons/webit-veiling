@@ -41,14 +41,19 @@ class clientController extends Controller
             ->withErrors(["Make sure your bid is higher than existing bids or the starting price"]);
         }
 
+        // Check if product hasn't reached end date at time of request
+        
+
         // Save bid
         $bid = new Bid([
             "user_id" => Auth::id(),
             "price" => $request->input('user_bid'),
             "product_id" => $product->id,
         ]);
-
         $bid->save();
+
+        $product->highest_offer = $request->input('user_bid');
+        $product->save();
 
         return view('./clients/thank');
     }

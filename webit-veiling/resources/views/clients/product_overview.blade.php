@@ -7,13 +7,15 @@
         <div class="d-flex justify-content-between flex-wrap">
             @foreach($data as $product)
             <div class="card mb-4" style="width:220px">
-                <img class="card-img-top" src="{{ 'storage/product_images/' .$product->img_url }}" alt="Card image" style="width:100%">
+                <a href="{{ route('offer_detail', $product->id) }}" class="pb-2">
+                    <img class="card-img-top" src="{{ 'storage/product_images/' .$product->img_url }}" alt="Card image" style="width:100%">
+                </a>
                 <div class="card-body">
-                    <h4 class="card-title">{{ $product->name }}</h4>
-                    <p class="card-text small font-weight-bold mb-0">Highest bid: {{ $product->highest_offer == null ? "No bids yet" : "€" . $product->highest_offer}}</p>
-                    <p class="card-text small font-weight-bold">Start price: €{{ $product->start_price }}</p>
-                    <a href="{{ route('offer_detail', $product->id) }}" class="btn btn-primary">See Product</a>
-                    <p class="small mb-0 mt-3">Closing date: {{ $product->close_date }}</p>
+                        <h4 class="card-title text-decoration-none">{{ $product->name }}</h4>
+                        <p class="card-text small font-weight-bold mb-0">Highest bid: {{ $product->highest_offer == null ? "No bids yet" : "€" . $product->highest_offer}}</p>
+                        <p class="card-text small font-weight-bold">Start price: €{{ $product->start_price }}</p>
+                        <a href="{{ route('offer_detail', $product->id) }}" class="btn-sm btn-primary">See Product</a>
+                        <p class="small mb-0 mt-3">Closing date: {{ $product->close_date }}</p>
                 </div>
             </div>
             @endforeach

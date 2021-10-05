@@ -15,7 +15,7 @@ class adminDashboardController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::orderBy('id', 'DESC')->paginate(10);
 
         return view('./admin/dashboard')->with('data', $products);
     }

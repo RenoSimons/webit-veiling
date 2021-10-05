@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
                 'user_id' => '1',
                 'product_id' => '1',
                 'price' => 600.50,
-
             ]);
         }    
     }

@@ -60,5 +60,9 @@
         startDate: '+1d'
     });
 </script>
-
+ <style>
+     img {
+         max-height: 12.5rem;
+     }
+ </style>
 @endsection
