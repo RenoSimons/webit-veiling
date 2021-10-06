@@ -31,4 +31,11 @@ class Product extends Model
 
         return ($dt->isPast()) ? false : true;
     }
+
+    public static function makeFileLink($file) {
+        $unique_photo_url = $file->hashName();
+        $file->store('product_images', 'public');
+
+        return $unique_photo_url;
+    }
 }

@@ -54,9 +54,7 @@ class adminDashboardController extends Controller
 
         // Make file link
         if ( !is_null ($request->file('file')) ) {
-            $unique_photo_url = $request->file->hashName();
-            
-            $request->file->store('product_images', 'public');
+            $unique_photo_url = Product::makeFileLink($request->file('file'));
         }
 
         // Save product
@@ -97,7 +95,7 @@ class adminDashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -107,9 +105,32 @@ class adminDashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        // Validate input
+        $validator =  Validator::make($request->all(),[
+            'product_title' => 'required|max:150',
+            'product_price' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+            ->withErrors($validator);
+        }
+        
+        // Make file link
+        if ( !is_null ($request->file('file')) ) {
+            $product->img_url = Product::makeFileLink($request->file('file'));
+        }
+
+        $product->name = $request->input('product_title');
+        $product->start_price = $request->input('product_price');
+        $product->close_date = $request->input('end_date');
+        $product->save();
+
+        return back()
+            ->with('success', 'Product changed successfully');
     }
 
     /**
