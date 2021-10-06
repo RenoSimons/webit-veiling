@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Dashboard</h1>
     <!-- Add new product button -->
-    <div class="d-flex justify-content-between w-100">
+    <div class="d-md-flex justify-content-between w-100">
         <div class="my-3">
             <button class="btn btn-info " type="button" data-toggle="modal" data-target="#add-product-modal">Add new product</button>
         </div>
@@ -29,10 +29,8 @@
         <ul class="list-group">
             @if(count($data) > 0)
             @foreach($data as $product)
-            <li class="list-group-item shadow d-flex justify-content-around align-items-center my-3">
-
-                <img src="{{ 'storage/product_images/' .$product->img_url }}" alt="product-image" class="img-fluid w-25">
-
+            <li class="list-group-item shadow d-md-flex justify-content-around align-items-center my-3">
+                <img src="{{ 'storage/product_images/' .$product->img_url }}" alt="product-image" class="img-fluid d-md-w-25">
                 <div>
                     <h4>{{ $product->name }}</h4>
                     <p>€{{ $product->start_price }}</p>

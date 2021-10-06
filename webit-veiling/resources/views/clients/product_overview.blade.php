@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container d-flex">
-    <div class="col-md-8">
+<div class="container d-md-flex">
+    <div class="col-sm-6 col-md-6 col-lg-8">
         <h1 class="my-3">Products for sale</h1>
         <div class="d-flex justify-content-between flex-wrap">
             @foreach($data as $product)
@@ -24,8 +24,8 @@
             {{ $data->links() }}
         </div>
     </div>
-    <div class="col-md-4">
-        <h1 class="my-3 op-0">Hidden spacer</h1>
+    <div class="col-sm-6 col-md-6 col-lg-4">
+        <h1 class="my-3 display-none d-md-block op-0">Hidden spacer</h1>
         <div class="white-bg">
             <h4>Your placed bids</h4>
             @guest

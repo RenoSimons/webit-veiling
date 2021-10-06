@@ -1,5 +1,4 @@
-<h1 class="op-0 my-3">Spacer invisible</h1>
-<div class="white-bg">
+<div class="white-bg my-3 mt-md-0">
     <h4>Bid history for {{ $data->name }}</h4>
     <div>
         @if(count($bids) > 0)
