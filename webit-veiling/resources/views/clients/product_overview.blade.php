@@ -33,7 +33,7 @@
             @endguest
 
             @auth
-            @if(count($user_bids) > 0)
+            @if(isset($user_bids))
             <ul class="list-group" id="user-bid-list">
                 @foreach($user_bids as $user_bid)
                 <a href="{{ '/offer/' . $user_bid->product_id }}">
@@ -53,6 +53,7 @@
         <div class="white-bg mt-4">
             @auth
             <h4>Change password</h4>
+            <x-change-password />
             @endauth
         </div>
     </div>

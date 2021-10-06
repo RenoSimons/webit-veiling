@@ -1,0 +1,1 @@
+<h1>Thanks for placing a bid</h1>

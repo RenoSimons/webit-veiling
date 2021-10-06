@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+
 use App\Models\Product;
 use App\Models\Bid;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Mail\bidPlacedMail;
 
 class clientController extends Controller
 {
@@ -71,6 +74,9 @@ class clientController extends Controller
         // Update product
         $product->highest_offer = $request->input('user_bid');
         $product->save();
+
+        // Send thanks mail
+        Mail::to($request->user())->send(new bidPlacedMail());
 
         return view('./clients/thank');
     }
