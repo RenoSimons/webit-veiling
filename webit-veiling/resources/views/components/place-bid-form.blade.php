@@ -23,3 +23,10 @@
         @endauth
     </div>
 </div>
+
+@auth
+    <div class="white-bg mt-4">
+        <p class="m-0">You currently have {{ Auth::user()->checkIfUserHasBidOnProduct($data->id) }} bids on this product</p>
+        <p class="m-0">{{ Auth::user()->getHighestUserBidOnProduct($data->id) }}</p>
+    </div>
+@endauth
