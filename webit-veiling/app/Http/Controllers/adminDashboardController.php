@@ -54,7 +54,7 @@ class adminDashboardController extends Controller
 
         // Make file link
         if ( !is_null ($request->file('file')) ) {
-            $unique_photo_url = Product::makeFileLink($request->file('file'));
+            $unique_photo_url = Product::makeFileLink($request->file('file'), null);
         }
 
         // Save product
@@ -121,7 +121,7 @@ class adminDashboardController extends Controller
         
         // Make file link
         if ( !is_null ($request->file('file')) ) {
-            $product->img_url = Product::makeFileLink($request->file('file'));
+            $product->img_url = Product::makeFileLink($request->file('file'), $product);
         }
 
         $product->name = $request->input('product_title');

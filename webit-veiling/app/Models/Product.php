@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Bid;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -32,7 +33,12 @@ class Product extends Model
         return ($dt->isPast()) ? false : true;
     }
 
-    public static function makeFileLink($file) {
+    public static function makeFileLink($file, $product) {
+        // If there already is an image for this product, delete and replace this
+        if($product) {
+            Storage::disk('product_images')->delete($product->img_url);
+        }
+
         $unique_photo_url = $file->hashName();
         $file->store('product_images', 'public');
 
