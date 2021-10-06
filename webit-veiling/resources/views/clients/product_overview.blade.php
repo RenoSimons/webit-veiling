@@ -50,12 +50,12 @@
             @endauth
         </div>
 
+        @auth
         <div class="white-bg mt-4">
-            @auth
             <h4>Change password</h4>
             <x-change-password />
-            @endauth
         </div>
+        @endauth
     </div>
 </div>
 

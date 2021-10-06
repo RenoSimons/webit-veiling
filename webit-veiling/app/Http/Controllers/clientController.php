@@ -76,7 +76,7 @@ class clientController extends Controller
         $product->save();
 
         // Send thanks mail
-        Mail::to($request->user())->send(new bidPlacedMail());
+        Mail::to($request->user())->send(new bidPlacedMail($product));
 
         return view('./clients/thank');
     }
