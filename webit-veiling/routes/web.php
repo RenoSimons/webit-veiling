@@ -20,9 +20,15 @@ Auth::routes();
 
 // Client
 Route::middleware('auth')->group(function () {
-    Route::get('/', [clientController::class, 'index'])->withoutMiddleware('auth');
-    Route::get('/offer/{product}', [clientController::class, 'detail'])->withoutMiddleware('auth')->name('offer_detail');
-    Route::post('/offer/{product}/bid', [clientController::class, 'placeBid'])->name('place_bid');
+    Route::get('/', [clientController::class, 'index'])
+    ->withoutMiddleware('auth');
+
+    Route::get('/offer/{product}', [clientController::class, 'detail'])
+    ->withoutMiddleware('auth')
+    ->name('offer_detail');
+
+    Route::post('/offer/{product}/bid', [clientController::class, 'placeBid'])
+    ->name('place_bid');
 });
 
 // Admin

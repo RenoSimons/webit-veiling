@@ -25,13 +25,47 @@
         </div>
     </div>
     <div class="col-md-4">
+        <h1 class="my-3 op-0">Hidden spacer</h1>
+        <div class="white-bg">
+            <h4>Your placed bids</h4>
+            @guest
+                <p>Please create account or log in to see your placed bids</p>
+            @endguest
 
+            @auth
+                @if(count($user_bids) > 0)
+                <ul class="list-group" id="user-bid-list">
+                    @foreach($user_bids as $user_bid)
+                    <a href="{{ '/offer/' . $user_bid->product_id }}">
+                        <li class="list-group-item d-flex justify-content-between align-items-center my-1">
+                            <span class="font-weight-bold">€{{ $user_bid->price }}</span>
+                            <span class="small">{{ $user_bid->name }}</span>
+                        </li>
+                    </a>
+                    @endforeach
+                </ul>
+                @else
+                <p>You currently have no running bids...</p>
+                @endif
+            @endauth
+        </div>
+
+        <div class="white-bg mt-4">
+            @auth
+            <h4>Change password</h4>
+            @endauth
+        </div>
     </div>
 </div>
 
 <style>
     img {
         max-height: 14rem;
+    }
+
+    #user-bid-list {
+        overflow-y: scroll;
+        height: 365px;
     }
 </style>
 @endsection

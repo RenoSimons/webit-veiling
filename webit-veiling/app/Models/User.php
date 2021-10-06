@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -45,5 +46,17 @@ class User extends Authenticatable
     public function bids()
     {
         return $this->hasMany(Bid::class);
+    }
+
+    public static function getUserBidsWithProducts($user) {
+        if(! $user) {
+            return null;
+        }
+
+        $bids = $user->bids()
+        ->join('products', 'bids.product_id', '=', 'products.id')
+        ->get();
+
+        return (count($bids) > 0) ? $bids : null;
     }
 }

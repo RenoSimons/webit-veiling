@@ -4,17 +4,21 @@
 <div class="container">
     <h1>Dashboard</h1>
     <!-- Add new product button -->
-    <button class="btn btn-info " type="button" data-toggle="modal" data-target="#add-product-modal">Add new product</button>
+    <div class="d-flex justify-content-between w-100">
+        <div class="my-3">
+            <button class="btn btn-info " type="button" data-toggle="modal" data-target="#add-product-modal">Add new product</button>
+        </div>
+        <div class="my-3 ">
+            @if($errors->any())
+            {!! implode('', $errors->all('<span class="alert alert-danger py-2">:message</span>')) !!}
+            @endif
 
-    <div class="my-3">
-        @if($errors->any())
-        {!! implode('', $errors->all('<span class="alert alert-danger py-2">:message</span>')) !!}
-        @endif
-
-        @if (session('success'))
-        <span class="alert alert-success py-2">{{ session('success') }}</span>
-        @endif
+            @if (session('success'))
+            <span class="alert alert-success py-2">{{ session('success') }}</span>
+            @endif
+        </div>
     </div>
+
 
     <!-- Add product Modal -->
     <x-add-product-modal />
@@ -23,27 +27,34 @@
     <div class="my-5">
         <h2>Products in offering</h2>
         <ul class="list-group">
+            @if(count($data) > 0)
             @foreach($data as $product)
             <li class="list-group-item shadow d-flex justify-content-around align-items-center my-3">
+
                 <img src="{{ 'storage/product_images/' .$product->img_url }}" alt="product-image" class="img-fluid w-25">
+
                 <div>
                     <h4>{{ $product->name }}</h4>
                     <p>€{{ $product->start_price }}</p>
+                    <p>Hoogste bod: €{{ $product->highest_offer }}</p>
                     <p class="small">Online since: {{ $product->close_date }}</p>
                 </div>
 
                 <div class="d-flex">
+                <a class="btn btn-warning mr-2" href="{{ route('products.show', $product) }}">Show</a>
+                    <button data-toggle="modal" data-target="#edit-product-modal{{$product->id}}" class="btn btn-info">Edit</button>
+                    <x-edit-product-modal :data="$product" />
                     <form action="{{ route('products.destroy', $product->id) }}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="submit" class="btn btn-danger ml-2">Remove</button>
                     </form>
-
-                    <button data-toggle="modal" data-target="#edit-product-modal{{$product->id}}" class="btn btn-info ml-2">Edit</button>
-                    <x-edit-product-modal :data="$product" />
                 </div>
             </li>
             @endforeach
+            @else
+            <h4 style="letter-spacing: 1px;">No products added yet...</h4>
+            @endif
         </ul>
 
         <div class="my-2">
@@ -60,9 +71,9 @@
         startDate: '+1d'
     });
 </script>
- <style>
-     img {
-         max-height: 12.5rem;
-     }
- </style>
+<style>
+    img {
+        max-height: 12.5rem;
+    }
+</style>
 @endsection

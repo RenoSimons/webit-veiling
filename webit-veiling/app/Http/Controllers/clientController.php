@@ -7,18 +7,26 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
 use App\Models\Bid;
+use App\Models\User;
+use Carbon\Carbon;
 
 class clientController extends Controller
 {
     public function index() {
-        $now = \Carbon\Carbon::today();
+        $now = Carbon::today();
 
         $products = Product::query()
         ->where('close_date' , '<', $now)
         ->orderBy('close_date', 'ASC')
-        ->paginate(9);
+        ->paginate(10);
+
+        // If user logged in, get their bids with products
+        $user = Auth::user();
+        $user_bids = User::getUserBidsWithProducts($user);
         
-        return view('./clients/product_overview')->with('data', $products);
+        return view('./clients/product_overview')
+        ->with(['data' => $products,
+                'user_bids' => $user_bids]);
     }
 
     public function detail(Product $product) {
