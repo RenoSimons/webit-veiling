@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
+use App\Models\Bid;
 
 class adminDashboardController extends Controller
 {
@@ -81,7 +82,11 @@ class adminDashboardController extends Controller
      */
     public function show(Product $product)
     {
-        dd($product);
+        $user_bids = Bid::getBidsForProduct($product);
+
+        return view('./admin/product_bids')
+        ->with(['data' => $product,
+                'bids' => $user_bids]);
     }
 
     /**

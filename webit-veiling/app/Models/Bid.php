@@ -25,6 +25,12 @@ class Bid extends Model
         return $this->hasOne(Product::class);
     }
 
+    public static function getBidsForProduct($product) {
+        $bids = $product->bids()->orderBy('price', 'DESC')->get();
+
+        return $bids;
+    }
+
     public static function checkIfHighestBidder($given_amount, $product) {
         $highest_bid = Bid::where('product_id', $product->id)
         ->orderBy('price', 'DESC')

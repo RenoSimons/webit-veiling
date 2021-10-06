@@ -30,7 +30,7 @@ class clientController extends Controller
     }
 
     public function detail(Product $product) {
-        $bids = $product->bids()->orderBy('price', 'DESC')->get();
+        $bids = Bid::getBidsForProduct($product);
 
         return view('./clients/product_detail')->with(
         ['data' => $product, 'bids' => $bids ]);
