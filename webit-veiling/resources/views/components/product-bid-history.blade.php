@@ -5,6 +5,7 @@
         <ul class="list-group">
             @foreach($bids as $bid)
             <li class="list-group-item d-flex justify-content-around align-items-center my-1">
+                <span>{{ $loop->index+1 }}.</span>
                 <span class="font-weight-bold">€{{ $bid->price }}</span>
                 <span class="small">{{ $bid->created_at }}</span>
             </li>

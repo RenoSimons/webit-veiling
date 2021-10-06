@@ -25,11 +25,13 @@ class clientController extends Controller
 
         // If user logged in, get their bids with products
         $user = Auth::user();
-        $user_bids = User::getUserBidsWithProducts($user);
-        
+        $user_winning_bids = User::getUserWinningBids($user);
+        $user_bid_history = User::getBidHistory($user);
+    
         return view('./clients/product_overview')
         ->with(['data' => $products,
-                'user_bids' => $user_bids]);
+                'user_bids' => $user_winning_bids,
+                'bid_history' => $user_bid_history]);
     }
 
     public function detail(Product $product) {
@@ -62,6 +64,9 @@ class clientController extends Controller
             return Redirect()->back()
             ->withErrors(["This bid offering has come to an end"]);
         }
+
+        // Update previous bids to lost
+        Bid::updateBidsToLost($product);
 
         // Save bid
         $bid = new Bid([

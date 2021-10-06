@@ -49,7 +49,20 @@ class User extends Authenticatable
         return $this->hasMany(Bid::class);
     }
 
-    public static function getUserBidsWithProducts($user) {
+    public static function getUserWinningBids($user) {
+        if(! $user) {
+            return null;
+        }
+
+        $bids = $user->bids()
+        ->where('is_lost', 0)
+        ->join('products', 'bids.product_id', '=', 'products.id')
+        ->get();
+
+        return (count($bids) > 0) ? $bids : null;
+    }
+
+    public static function getBidHistory($user) {
         if(! $user) {
             return null;
         }

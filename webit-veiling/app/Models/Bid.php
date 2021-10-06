@@ -13,6 +13,7 @@ class Bid extends Model
         'user_id',
         'product_id',
         'price',
+        'is_lost'
     ];
 
     public $timestamps = true;
@@ -38,5 +39,12 @@ class Bid extends Model
         ->first();
 
         return ($highest_bid < $given_amount || $highest_bid == null) &&  $product->start_price < $given_amount ?  true : false;
+    }
+
+    public static function updateBidsToLost($product) {
+        foreach($product->bids as $bid) {
+            $bid->is_lost = 1;
+            $bid->save();
+        }
     }
 }
