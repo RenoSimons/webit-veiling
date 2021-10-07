@@ -21,7 +21,7 @@ Auth::routes();
 // Client
 Route::middleware('auth')->group(function () {
     Route::get('/', [clientController::class, 'index'])
-    ->withoutMiddleware('auth');
+    ->withoutMiddleware('auth')->name('home');
 
     Route::get('/offer/{product}', [clientController::class, 'detail'])
     ->withoutMiddleware('auth')
@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/offer/{product}/bid', [clientController::class, 'placeBid'])
     ->name('place_bid');
+
+    Route::post('/bid/delete/{id}', [clientController::class, 'removeBid'])
+    ->name('delete_bid');
 });
 
 // Admin

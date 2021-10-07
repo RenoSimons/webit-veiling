@@ -85,4 +85,22 @@ class clientController extends Controller
 
         return view('./clients/thank');
     }
+
+    public function removeBid($product_id) {
+        $bid_id = Auth::user()->bids
+        ->where('is_lost', 0)
+        ->where('product_id', $product_id)
+        ->pluck('id');
+
+        if ($bid_id) {
+            Bid::destroy($bid_id);
+            
+            // Assign new highest bid back to previous winner
+            Bid::updateValidBid($product_id);
+
+            return redirect()->route('home');
+        }
+
+        return redirect()->route('home')->with('error', 'Bid not found');
+    }
 }

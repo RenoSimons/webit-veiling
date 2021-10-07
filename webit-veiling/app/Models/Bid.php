@@ -47,4 +47,18 @@ class Bid extends Model
             $bid->save();
         }
     }
+
+    public static function updateValidBid($product_id) {
+        $validBid = Bid::where('product_id', $product_id)
+        ->orderBy('price', 'DESC')
+        ->first();
+
+        $validBid->is_lost = 0;
+        $validBid->save();
+
+        // Update the product
+        $product = Product::where('id', $product_id)->first();
+        $product->highest_offer = $validBid->price;
+        $product->save();
+    }
 }

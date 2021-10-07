@@ -40,6 +40,11 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center my-1">
                         <span class="font-weight-bold">€{{ $user_bid->price }}</span>
                         <span class="small">{{ $user_bid->name }}</span>
+                        <form action="{{ route('delete_bid', $user_bid->id )}}" method="post">
+                            @csrf
+                            {{ method_field('POST') }}
+                            <button type="submit" class="btn-sm btn-danger">X</button>
+                        </form>
                     </li>
                 </a>
                 @endforeach
@@ -61,12 +66,13 @@
             <ul class="list-group" id="user-bid-list">
                 @foreach($bid_history as $user_bid)
                 <li class="list-group-item d-flex justify-content-between align-items-center my-1">
+                    <span>{{ $loop->index+1 }}.</span>
                     <span class="font-weight-bold">€{{ $user_bid->price }}</span>
                     <span class="small">{{ $user_bid->name }}</span>
                 </li>
                 @endforeach
             </ul>
-            
+
             @else
             <p>You have no bids yet...</p>
         </div>
