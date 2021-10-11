@@ -83,19 +83,6 @@
             @yield('content')
         </main>
     </div>
-
-    <style>
-        .white-bg {
-            background-color: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .op-0 {
-            opacity: 0;
-        }
-    </style>
 </body>
 
 </html>

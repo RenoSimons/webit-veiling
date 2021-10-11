@@ -1,3 +1,10 @@
+#user-bid-list {
+    overflow-y: scroll;
+    height: 375px;
+}
+
 .list-item {
-    
+    padding: 7.5px;
+    border-radius: 2px;
+    width: 95%;
 }

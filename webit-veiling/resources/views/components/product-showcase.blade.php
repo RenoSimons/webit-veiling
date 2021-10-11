@@ -1,4 +1,4 @@
-<div class="white-bg">
+<div class="custom-card">
     <h1 class="my-3 d-sm-none d-md-block">{{$data->name}}</h1>
     <div class="d-sm-block d-md-flex">
         <div class="col-sm-12 col-md-6">

@@ -35,7 +35,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add product</button>
+                    <button type="submit" class="button-main">Add product</button>
                 </div>
             </form>
         </div>

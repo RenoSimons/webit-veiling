@@ -26,7 +26,7 @@
     </div>
     <div class="col-sm-6 col-md-6 col-lg-4">
         <h1 class="my-3 display-none d-md-block op-0">Hidden spacer</h1>
-        <div class="white-bg">
+        <div class="custom-card">
             <h4>Your current winning bids</h4>
             @guest
             <p>Please create account or log in to see your placed bids</p>
@@ -37,13 +37,13 @@
             <ul class="list-group" id="user-bid-list">
                 @foreach($user_bids as $user_bid)
                 <a href="{{ '/offer/' . $user_bid->product_id }}">
-                    <li class="list-group-item d-flex justify-content-between align-items-center my-1">
+                    <li class="list-item bg--green d-flex justify-content-between align-items-center my-1">
                         <span class="font-weight-bold">€{{ $user_bid->price }}</span>
                         <span class="small">{{ $user_bid->name }}</span>
                         <form action="{{ route('delete_bid', $user_bid->id )}}" method="post">
                             @csrf
                             {{ method_field('POST') }}
-                            <button type="submit" class="btn-sm btn-danger">X</button>
+                            <button type="submit" class="remove-btn">X</button>
                         </form>
                     </li>
                 </a>
@@ -56,16 +56,16 @@
         </div>
 
         @auth
-        <div class="white-bg mt-4">
+        <div class="custom-card mt-4">
             <h4>Change password</h4>
             <x-change-password />
         </div>
-        <div class="white-bg mt-4">
+        <div class="custom-card mt-4">
             <h4>Bid history</h4>
             @if(isset($bid_history))
             <ul class="list-group" id="user-bid-list">
                 @foreach($bid_history as $user_bid)
-                <li class="list-group-item d-flex justify-content-between align-items-center my-1">
+                <li class="list-item d-flex justify-content-between align-items-center my-1">
                     <span>{{ $loop->index+1 }}.</span>
                     <span class="font-weight-bold">€{{ $user_bid->price }}</span>
                     <span class="small">{{ $user_bid->name }}</span>
@@ -84,11 +84,6 @@
 <style>
     img {
         max-height: 14rem;
-    }
-
-    #user-bid-list {
-        overflow-y: scroll;
-        height: 365px;
     }
 </style>
 @endsection

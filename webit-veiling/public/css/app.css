@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
 :root {
+  --color--white: white;
   --color--primary: #DC3545;
   --color--primary-subtle: rgba(220, 53, 69, 0.5);
   --color--secondary: #141516;
+  --color--green: #D4EDDA;
 }
 
 @-webkit-keyframes fadeIn {
@@ -82,6 +84,14 @@ blockquote {
   color: var(--color--brand-0);
 }
 
+.fc--white {
+  color: var(--color--white);
+}
+
+.bg--white {
+  background-color: var(--color--white);
+}
+
 .fc--primary {
   color: var(--color--primary);
 }
@@ -104,6 +114,14 @@ blockquote {
 
 .bg--secondary {
   background-color: var(--color--secondary);
+}
+
+.fc--green {
+  color: var(--color--green);
+}
+
+.bg--green {
+  background-color: var(--color--green);
 }
 
 h1,
@@ -133,7 +151,7 @@ h5 {
 .button-main:hover {
   color: white;
   text-decoration: none;
-  padding: 10px;
+  padding: 7.5px 10px;
   letter-spacing: 1px;
 }
 
@@ -153,10 +171,28 @@ h5 {
   letter-spacing: 1px;
 }
 
+.remove-btn {
+  background-color: var(--color--primary);
+  border-radius: 3px;
+  border: none;
+  color: white;
+}
+
 .form__actions {
   align-items: center;
   display: flex;
   justify-content: flex-end;
+}
+
+#user-bid-list {
+  overflow-y: scroll;
+  height: 375px;
+}
+
+.list-item {
+  padding: 7.5px;
+  border-radius: 2px;
+  width: 95%;
 }
 
 .logo {
@@ -168,6 +204,18 @@ h5 {
   background: white;
   border-radius: 5px;
   border: 1px solid var(--color--primary-subtle);
+  padding: 10px;
+}
+
+.white-bg {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.op-0 {
+  opacity: 0;
 }
 
 .page-item.active .page-link {
@@ -189,10 +237,10 @@ h5 {
   --red: #dc3545;
   --orange: #fd7e14;
   --yellow: #ffc107;
-  --green: #28a745;
+  --green: #D4EDDA;
   --teal: #20c997;
   --cyan: #17a2b8;
-  --white: #fff;
+  --white: white;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #DC3545;

@@ -1,4 +1,4 @@
-<div class="white-bg mt-4">
+<div class="custom-card mt-4">
     @guest
     <h4 class="my-3">Please login to place a bid</h4>
     <a href="/login" class="btn btn-primary">Log in</a>
@@ -12,7 +12,7 @@
             <label for="exampleInputEmail1">Enter amount you wish to bid</label>
             <div class="d-flex">
                 <input type="number" step="0.01" class="form-control w-25" placeholder="Enter number in €" name="user_bid" required>
-                <button type="submit" class="btn btn-primary ml-2">Place your bid</button>
+                <button type="submit" class="button-main ml-2">Place your bid</button>
             </div>
         </div>
     </form>
@@ -25,7 +25,7 @@
 </div>
 
 @auth
-    <div class="white-bg mt-4">
+    <div class="custom-card mt-4">
         <p class="m-0">You currently have {{ Auth::user()->checkIfUserHasBidOnProduct($data->id) }} bids on this product</p>
         <p class="m-0">{{ Auth::user()->getHighestUserBidOnProduct($data->id) }}</p>
     </div>
