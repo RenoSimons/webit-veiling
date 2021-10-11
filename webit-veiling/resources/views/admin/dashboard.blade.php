@@ -19,7 +19,7 @@
 
     <!-- Overview of all products list -->
     <div class="my-5">
-        <h2>Products in offering</h2>
+        <h2 class="pt-5">Products in offering</h2>
         <ul class="toggable-list p-0">
             @if(count($data) > 0)
             @foreach($data as $product)
@@ -36,13 +36,13 @@
                     </div>
 
                     <div class="d-flex justify-content-center col-md-4">
-                        <a class="btn btn-warning mr-2" href="{{ route('products.show', $product) }}">Show</a>
-                        <button data-toggle="modal" data-target="#edit-product-modal{{$product->id}}" class="btn btn-info">Edit</button>
+                        <a class="button-main mr-2" href="{{ route('products.show', $product) }}">Show</a>
+                        <button data-toggle="modal" data-target="#edit-product-modal{{$product->id}}" class="button-main">Edit</button>
                         <x-edit-product-modal :data="$product" />
                         <form action="{{ route('products.destroy', $product->id) }}" method="post">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger ml-2">Remove</button>
+                            <button type="submit" class="button-main ml-2">Remove</button>
                         </form>
                     </div>
              

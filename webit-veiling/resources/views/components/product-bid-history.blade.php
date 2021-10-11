@@ -3,6 +3,11 @@
     <div>
         @if(count($bids) > 0)
         <ul class="list-group">
+            <div class="d-flex justify-content-around small">
+                <div>Id</div>
+                <div>Price</div>
+                <div class="mr-3">Date</div>
+            </div>
             @foreach($bids as $bid)
             <li class="list-item d-flex justify-content-around align-items-center my-1">
                 <span>{{ $loop->index+1 }}.</span>

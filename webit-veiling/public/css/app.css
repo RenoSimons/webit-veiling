@@ -4,6 +4,7 @@
   --color--white: white;
   --color--primary: #DC3545;
   --color--primary-subtle: rgba(220, 53, 69, 0.5);
+  --color--primary-subtle2: rgba(220, 53, 69, 0.25);
   --color--secondary: #141516;
   --color--green: #D4EDDA;
 }
@@ -55,7 +56,7 @@
     opacity: 0;
   }
 }
-.w-45 {
+.w-48 {
   width: 48%;
 }
 
@@ -110,6 +111,14 @@ blockquote {
 
 .bg--primary-subtle {
   background-color: var(--color--primary-subtle);
+}
+
+.fc--primary-subtle2 {
+  color: var(--color--primary-subtle2);
+}
+
+.bg--primary-subtle2 {
+  background-color: var(--color--primary-subtle2);
 }
 
 .fc--secondary {
@@ -227,8 +236,14 @@ li {
   border-radius: 5px;
   border: 1px solid var(--color--primary-subtle);
   padding: 10px;
+  width: auto;
 }
 
+@media only screen and (min-width: 1185px) {
+  #card-front-page {
+    width: 340px;
+  }
+}
 .white-bg {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -288,6 +303,11 @@ li {
   border-color: var(--color--primary) !important;
 }
 
+#index-bg {
+  background-position: 0px -90px;
+  background-repeat: no-repeat;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -310,6 +330,7 @@ li {
   --gray-dark: #343a40;
   --primary: #DC3545;
   --primary-subtle: rgba(220, 53, 69, 0.5);
+  --primary-subtle2: rgba(220, 53, 69, 0.25);
   --secondary: #141516;
   --primary: #007bff;
   --secondary: #6c757d;

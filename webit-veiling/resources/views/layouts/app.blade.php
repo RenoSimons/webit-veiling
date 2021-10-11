@@ -81,7 +81,7 @@
 
         <x-feedback-messages />
 
-        <main class="py-4">
+        <main class="py-4" style="overflow-x: hidden; background-image: url('images/bg.png')" id="index-bg">
             @yield('content')
         </main>
     </div>
