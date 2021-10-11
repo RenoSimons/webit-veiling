@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @admin
-                        <li class=""><a href="/products" class="btn-sm btn-primary">Dashboard</a></li>
+                        <li><a href="/products" class="button-nav">Dashboard</a></li>
                         @endadmin
                     </ul>
 

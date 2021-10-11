@@ -4,24 +4,11 @@
 @import './mq/vars';
 @import './typography/vars';
 
-// :root {
-//     @each $name, $color in $colors {
-//         --color--#{$name}: #{$color};
-//     }
-
-//     @each $name, $fontSize in $fontSizes {
-//         --fs--#{$name}: #{$fontSize};
-//     }
-
-//     --font--regular: #{$font--regular}, sans-serif;
-//     --font--special: #{$font--special}, serif;
-
-//     --transition-duration: #{$transition-duration};
-
-//     @for $i from 0 to $gaps {
-//         --gap--#{$i}: #{$i * $gap};
-//     }
-// }
+:root {
+    @each $name, $color in $colors {
+        --color--#{$name}: #{$color};
+    }
+}
 
 @import './animations/animations.scss';
 @import './boxing/boxing.scss';

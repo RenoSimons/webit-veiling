@@ -1,0 +1,15 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--color--primary);
+}
+
+#user-bid-list a {
+    color: var(--color--secondary) !important;
+
+    &:hover {
+        color: var(--color--primary) !important;
+    }
+}

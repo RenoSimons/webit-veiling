@@ -23,4 +23,5 @@ mix.webpackConfig({
     }
 }).js('resources/js/app.js', 'public/js')
 .sass('resources/sass/app.scss', 'public/css')
+.copy('resources/images', 'public/images', false)
 .sourceMaps();
