@@ -55,6 +55,10 @@
     opacity: 0;
   }
 }
+.w-45 {
+  width: 48%;
+}
+
 html, body {
   color: var(--color--text);
 }
@@ -184,6 +188,12 @@ h5 {
   justify-content: flex-end;
 }
 
+.change-view-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 #user-bid-list {
   overflow-y: scroll;
   height: 375px;
@@ -193,6 +203,18 @@ h5 {
   padding: 7.5px;
   border-radius: 2px;
   width: 95%;
+}
+
+li {
+  list-style: none;
+}
+
+.toggable-list {
+  transition: 1s;
+}
+
+.dashboard-list-item {
+  transition: 1s;
 }
 
 .logo {
