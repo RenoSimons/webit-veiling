@@ -1,0 +1,26 @@
+@import './vars';
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    1% {
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        visibility: hidden;
+    }
+    100% {
+        opacity: 0;
+    }
+}

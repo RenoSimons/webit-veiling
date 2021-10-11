@@ -1,0 +1,29 @@
+@import './animations/vars';
+@import './boxing/vars';
+@import './colors/vars';
+@import './mq/vars';
+@import './typography/vars';
+
+// :root {
+//     @each $name, $color in $colors {
+//         --color--#{$name}: #{$color};
+//     }
+
+//     @each $name, $fontSize in $fontSizes {
+//         --fs--#{$name}: #{$fontSize};
+//     }
+
+//     --font--regular: #{$font--regular}, sans-serif;
+//     --font--special: #{$font--special}, serif;
+
+//     --transition-duration: #{$transition-duration};
+
+//     @for $i from 0 to $gaps {
+//         --gap--#{$i}: #{$i * $gap};
+//     }
+// }
+
+@import './animations/animations.scss';
+@import './boxing/boxing.scss';
+@import './colors/colors.scss';
+@import './typography/typograhy.scss';

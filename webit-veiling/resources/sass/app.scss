@@ -2,7 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import '01_fundaments/fundaments.scss';
+@import '02_atoms/**/*.scss';
+@import '03_molecules/**/*.scss';
+@import '04_organisms/**/*.scss';
+@import '05_layouts/**/*.scss';
+@import '06_buckets/**/*.scss';
+@import '99_shame/**/*.scss';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

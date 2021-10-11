@@ -1,0 +1,40 @@
+@import './vars';
+
+html, body {
+    color: var(--color--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+.heading {
+    color: var(--color--heading);
+}
+
+a {
+    color: var(--color--action);
+    transition: color var(--transition-duration);
+
+    &:hover {
+        color: var(--color--action-dark);
+    }
+    // &:visited {
+    //     color: var(--color--action-visited);
+    // }
+}
+
+span[tabindex] {
+    outline: none;
+    cursor: pointer;
+}
+
+blockquote {
+    color: var(--color--brand-0);
+}
+
+@each $name, $color in $colors {
+    .fc--#{$name} { color: var(--color--#{$name}) }
+
+    .bg--#{$name} { background-color: var(--color--#{$name}) }
+}
