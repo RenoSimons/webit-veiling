@@ -16,12 +16,7 @@
             </div>
         </div>
     </form>
-    <div class="my-4">
-        @if($errors->any())
-        {!! implode('', $errors->all('<span class="alert alert-danger">:message</span>')) !!}
-        @endif
-        @endauth
-    </div>
+    @endauth
 </div>
 
 @auth

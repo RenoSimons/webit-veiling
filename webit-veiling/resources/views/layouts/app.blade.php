@@ -79,6 +79,8 @@
             </div>
         </nav>
 
+        <x-feedback-messages />
+
         <main class="py-4">
             @yield('content')
         </main>

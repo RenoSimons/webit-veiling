@@ -1,0 +1,26 @@
+#feedback-message {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    right: 0;
+    display:flex;
+    justify-content: flex-end;
+    transform: translateX(400px);
+    animation: slideIn 4s linear forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(400px);
+    }
+    15% {
+        transform: translateX(0px);
+    }
+    75% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        transform: translateX(0px);
+    }
+}

@@ -8,17 +8,7 @@
         <div class="my-3">
             <button class="button-main" type="button" data-toggle="modal" data-target="#add-product-modal">Add new product</button>
         </div>
-        <div class="my-3 ">
-            @if($errors->any())
-            {!! implode('', $errors->all('<span class="alert alert-danger py-2">:message</span>')) !!}
-            @endif
-
-            @if (session('success'))
-            <span class="alert alert-success py-2">{{ session('success') }}</span>
-            @endif
-        </div>
     </div>
-
 
     <!-- Add product Modal -->
     <x-add-product-modal />
