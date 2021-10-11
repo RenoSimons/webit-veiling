@@ -38,7 +38,7 @@ class Bid extends Model
         ->pluck('price')
         ->first();
 
-        return ($highest_bid < $given_amount || $highest_bid == null) &&  $product->start_price < $given_amount ?  true : false;
+        return ($highest_bid < $given_amount || $highest_bid == null) &&  $product->start_price < $given_amount ? true : false;
     }
 
     public static function updateBidsToLost($product) {
@@ -52,6 +52,10 @@ class Bid extends Model
         $validBid = Bid::where('product_id', $product_id)
         ->orderBy('price', 'DESC')
         ->first();
+
+        if(! $validBid) {
+            return;
+        }
 
         $validBid->is_lost = 0;
         $validBid->save();
