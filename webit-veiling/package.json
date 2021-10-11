@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "gulp": "^4.0.2",
+        "import-glob-loader": "^1.1.0",
         "install": "^0.13.0",
         "npm": "^7.24.2"
     }
