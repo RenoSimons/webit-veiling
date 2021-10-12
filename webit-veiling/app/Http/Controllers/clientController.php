@@ -19,7 +19,7 @@ class clientController extends Controller
         $now = Carbon::today();
 
         $products = Product::query()
-        ->where('close_date' , '<', $now)
+        ->where('close_date' , '>', $now)
         ->orderBy('close_date', 'ASC')
         ->paginate(10);
 

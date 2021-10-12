@@ -81,10 +81,12 @@
             @endauth
         </div>
 
+        @auth
         <div class="custom-card mt-4">
             <h4>Change password</h4>
             <x-change-password />
         </div>
+        @endauth
     </div>
 
 </div>

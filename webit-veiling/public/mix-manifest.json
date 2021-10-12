@@ -1,9 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/images/big-auction-banner-image-clipping-path-88776937.jpg": "/images/big-auction-banner-image-clipping-path-88776937.jpg",
-    "/images/large.png": "/images/large.png",
-    "/images/small.png": "/images/small.png",
     "/images/bg.png": "/images/bg.png",
-    "/images/bg2.svg": "/images/bg2.svg"
+    "/images/bg2.svg": "/images/bg2.svg",
+    "/images/large.png": "/images/large.png",
+    "/images/small.png": "/images/small.png"
 }

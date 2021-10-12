@@ -22,3 +22,7 @@
 .op-0 {
     opacity: 0;
 }
+
+.gradient {
+    background-image: linear-gradient(to right, var(--color--primary-subtle), var(--color--primary));
+}
